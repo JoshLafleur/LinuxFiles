@@ -1,0 +1,104 @@
+# i3status configuration file.
+# see "man i3status" for documentation.
+
+# It is important that this file is edited as UTF-8.
+# The following line should contain a sharp s:
+# ß
+# If the above line is not correctly displayed, fix your editor first!
+
+general {
+        colors = true
+        interval = 5
+        color_none = 'FFFFFF'
+        markup = "pango"
+        interval = 1
+}
+
+order += "keyboard_locks"
+order += "ipv6"
+order += "wireless _first_"
+order += "ethernet _first_"
+order += "path_exists VPN"
+order += "volume master"
+order += "read_file bri"
+order += "battery all"
+order += "load"
+order += "cpu_temperature 0"
+order += "memory"
+order += "disk /"
+order += "tztime local"
+order += "read_file uptime"
+
+keyboard_locks {
+    format =  '[\?if=num_lock&color=good NUM|\?color=bad NUM] '
+    format += '[\?if=caps_lock&color=good CAPS|\?color=bad CAPS] '
+}
+
+wireless _first_ {
+        format_up = "W:%quality, %bitrate, %ip"
+        format_down = "W: down"
+}
+
+ethernet _first_ {
+        format_up = "E: %ip (%speed)"
+        format_down = "E: down"
+}
+
+path_exists VPN {
+        # path exists when a VPN tunnel launched by nmcli/nm-applet is active
+        path = "/proc/sys/net/ipv4/conf/ppp0"
+}
+
+volume master {
+   format = "VOL: %volume"
+   format_muted = "VOL: (muted) %volume"
+   device = "default"
+   mixer = "Master"
+   mixer_idx = 0
+}
+
+read_file bri {
+        format = "<span color='#FFFFFF'>BRI: %content/255</span>"
+        path = "/sys/class/backlight/amdgpu_bl0/brightness"
+}
+
+battery all {
+        format = "%status %percentage %remaining %emptytime"
+        format_down = "No battery"
+        status_chr = "CHR"
+        status_bat = "BAT"
+        status_unk = "? UNK"
+        status_full = "FULL"
+        path = "/sys/class/power_supply/BAT%d/uevent"
+        low_threshold = 20
+        threshold_type = percentage
+}
+
+disk "/" {
+        format = "DISK FREE: %avail"
+}
+
+load {
+        format = "LOAD: %1min"
+        format_above_threshold = "LOAD: %1min %5min %15min"
+}
+
+cpu_temperature 0 {
+        format = "T: %degrees °C"
+        path = "/sys/devices/platform/thinkpad_hwmon/hwmon/hwmon*/temp1_input"
+}
+
+memory {
+        format = "MEM FREE: %available"
+        threshold_degraded = "1G"
+        format_degraded = "MEMORY < %available"
+}
+
+tztime local {
+        format = "%Y-%m-%d %H:%M:%S"
+}
+
+read_file uptime {
+        path = "/proc/uptime"
+        format = "<span color='#FFFFFF'>%content</span>"
+}
