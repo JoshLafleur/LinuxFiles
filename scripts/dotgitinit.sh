@@ -1,5 +1,5 @@
 git init --bare $HOME/.cfg
-/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME--local status.showUntrackedFiles no
+/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME --local status.showUntrackedFiles no
 /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME add .vimrc
 /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME commit -m "added .vimrc"
 /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME add .bashrc
