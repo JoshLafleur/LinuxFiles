@@ -1,0 +1,58 @@
+--- TODO
+Environment development
+  Setup Hibernation
+  Setup Laptop Mode
+
+--- IN PROGRESS
+
+--- COMPLETED
+Backup environment files - working on the push aspect
+  .config
+    i3/config
+    i3status/config
+    kitty/kitty.conf
+  scripts
+    all
+  .bashrc
+  .vimrc
+Environment development
+  Setup vim, its plug ins, and its functionality
+  Setup i3 keymaps (lock, sleep, volume, mute, brightness, print screen)
+  Setup vscode (connect git, install vim, install git graph, git lens)
+  Login to firefox and thunderbird
+  Installed thunar
+  Installed calcurse
+  Install Libreoffice
+
+INITIAL
+1- OS Install  
+  Resized Windows to 150GB
+  fdisk -l
+    /dev/nvme0n1p1      2048     567295     565248   276M EFI System
+    /dev/nvme0n1p2 313073664  407445503   94371840    45G Linux swap
+    /dev/nvme0n1p3    567296  311836671  311269376 148.4G Microsoft basic data
+    /dev/nvme0n1p4 311836672  313073663    1236992   604M Windows recovery environment
+    /dev/nvme0n1p5 407445504 1953525134 1546079631 737.2G Linux filesystem
+  Burn Gentoo and load livecd
+  Kernel compile with menuconfig and genkernel - added thinkpad unsafe led's and debug functionality
+  Update world
+  Create new USE flags
+    X acpi alsa appindicator audit bluetooth calendar cups cxx dbus dga doc elogind exif ftp gimp git gtk ios lm-sensors networkmanager offensive pulseaudio python qt5 sound spell syslog -systemd threads upower unicode wifi xinerama
+  GRUB+OS prober install
+  Install wpa_supplicant - config at /etc/wpa_supplicant.conf
+  set root password
+  Install sysklogd and mlocate
+  Grub install and mkconfig
+  Reboot
+2- Environment Creation
+  *From this point on, set all package use flags
+  Install layman, portage-utils, laptop-mode-tools, sudo, vim, genlop
+  Install networkmanager, nm-applet,xorg-server, dmenu
+  Install i3, i3lock, numlockx, imagemagick
+  useradd -G wheel, video josh
+  Add josh to /etc/sudoers
+  Install copyq, firefox, thunderbird, gimp
+  Install openfortivpn and fortisslvpn (for NM)
+  Install py3status
+  Install vscode
+  
