@@ -63,7 +63,7 @@ read_file bri {
 }
 
 battery all {
-        format = "%status %percentage %remaining %emptytime"
+        format = "%status %percentage %remaining"
         format_down = "No battery"
         status_chr = "CHR"
         status_bat = "BAT"
@@ -84,7 +84,7 @@ load {
 }
 
 cpu_temperature 0 {
-        format = "T: %degrees °C"
+        format = "TEMP: %degrees °C"
         path = "/sys/devices/platform/thinkpad_hwmon/hwmon/hwmon*/temp1_input"
 }
 
