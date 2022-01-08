@@ -1,1 +1,0 @@
-VBoxClient --clipboard --draganddrop --vmsvga
