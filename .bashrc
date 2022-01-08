@@ -14,5 +14,7 @@ if [[ $- != *i* ]] ; then
 	return
 fi
 
+alias config="/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
+
 
 # Put your fun stuff here.
