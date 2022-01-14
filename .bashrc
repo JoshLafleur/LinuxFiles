@@ -16,5 +16,5 @@ fi
 
 alias config="/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
 
-
+neofetch
 # Put your fun stuff here.
