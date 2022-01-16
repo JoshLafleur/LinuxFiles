@@ -80,6 +80,16 @@ bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
 
 bindsym $mod+Shift+n exec --no-startup-id i3-msg "rename workspace to "$(i3-msg -t get_workspaces | jq -r "map(select(.focused))[0].num")"" && i3-input -F "rename workspace to "$(i3-msg -t get_workspaces | jq -r "map(select(.focused))[0].num"):%s"" -P "New name: "
 
+# scratchpad
+#bindsym $mod+s
+exec rm ~/scratch.swp
+exec --no-startup-id kitty --title=__scratchpad vim +star -c "autocmd TextChanged,TextChangedI <buffer> silent write" ~/scratch
+for_window [title="^__scratchpad$"] floating enable
+for_window [title="^__scratchpad$"] resize set 800 550
+for_window [title="^__scratchpad$"] move scratchpad
+for_window [title="^__scratchpad$"] border pixel 5
+bindsym $mod+s [title="^__scratchpad$"] scratchpad show; [title="^__scratchpad$"] move position center
+
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
@@ -108,7 +118,7 @@ bindsym $mod+v split v
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
+#bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
@@ -217,5 +227,6 @@ bindsym $mod+m mode "move"
 # finds out, if available)
 bar {
         font pango:DejaVu Sans 10.5
+        tray_output primary
         status_command py3status
 }

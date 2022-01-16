@@ -23,7 +23,7 @@ set scrolloff=10
 syntax enable
 set wildmenu
 set backspace=indent,eol,start
-set spell
+"set spell
 set wildignore=.jpeg,.png,.swp
 set showtabline=2
 nnoremap<C-Left> :tabN<CR>
