@@ -173,6 +173,18 @@ bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
+# change virtual terminal
+bindsym $mod+F1 exec sudo chvt 1
+bindsym $mod+F2 exec sudo chvt 2
+bindsym $mod+F3 exec sudo chvt 3
+bindsym $mod+F4 exec sudo chvt 4
+bindsym $mod+F5 exec sudo chvt 5
+bindsym $mod+F6 exec sudo chvt 6
+bindsym $mod+F7 exec sudo chvt 7
+bindsym $mod+F8 exec sudo chvt 8
+bindsym $mod+F9 exec sudo chvt 9
+bindsym $mod+F10 exec sudo chvt 10
+
 # switch to next/previous active workspace
 bindsym $mod+p workspace prev
 bindsym $mod+n workspace next
