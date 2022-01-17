@@ -1,4 +1,5 @@
 echo ".cfg" >> .gitignore
-git clone --bare /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME  $HOME/.cfg
-/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME config --local status.showUntrackedFiles no
-/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME checkout GentooLaptop
+git clone --bare <remote-git-repo-url> $HOME/.cfg
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+config config --local status.showUntrackedFiles no
+config checkout GentooLaptop
