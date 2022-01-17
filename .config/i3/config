@@ -244,13 +244,14 @@ bar {
         font pango:DejaVu Sans 10.5
         tray_output none
         workspace_buttons no
+        binding_mode_indicator no
         status_command py3status
 }
 
 bar {
         id bar-1
         position top
-        font pango:DejaVu Sans 10.5
+        font pango:DejaVu Sans 10
         tray_output primary
         status_command /home/josh/scripts/topbar.sh
 

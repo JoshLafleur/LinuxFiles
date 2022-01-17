@@ -2,8 +2,11 @@
 
 i3status | while :
 do
-  pck=$( sudo genlop -n -c | grep \*)
-  gen=$(sudo genlop -n -c | grep Currently)
-  eta=$(sudo genlop -n -c | grep ETA)
-  printf "$gen -> ${pck:3} ${eta:6}" || exit 1 
+  gen=$(sudo genlop -c -n )
+  pck=$(grep \* <<< "$gen")
+  cur=$(grep Currently <<< $gen)
+  eta=$(grep ETA <<< $gen)
+  if [ $pck != "" ]; then 
+    printf "$cur -> ${pck:3} ${eta:7}" || exit 1 
+  fi
 done
