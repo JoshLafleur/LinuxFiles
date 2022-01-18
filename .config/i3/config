@@ -253,6 +253,5 @@ bar {
         position top
         font pango:DejaVu Sans 10
         tray_output primary
-        #status_command /home/josh/scripts/topbar.sh
-
+        status_command /home/josh/scripts/topbar.sh
 }
