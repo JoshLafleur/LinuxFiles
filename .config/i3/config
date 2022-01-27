@@ -92,6 +92,9 @@ for_window [title="^__scratchpad$"] border pixel 5
 bindsym $mod+s [title="^__scratchpad$"] scratchpad show; [title="^__scratchpad$"] move position center 
 #; [title="^__scratchpad$"] fullscreen
 
+#Zoom settings
+for_window [title="^zoom$"] floating enable
+
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
