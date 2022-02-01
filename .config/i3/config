@@ -89,7 +89,12 @@ for_window [title="^__scratchpad$"] floating enable
 for_window [title="^__scratchpad$"] resize set 800 550
 for_window [title="^__scratchpad$"] move scratchpad
 for_window [title="^__scratchpad$"] border pixel 5
-bindsym $mod+s [title="^__scratchpad$"] scratchpad show; [title="^__scratchpad$"] move position center 
+bindsym $mod+s [title="^__scratchpad$"] scratchpad show; [title="^__scratchpad$"] move position center
+
+for_window [title="^CPU Monitor$"] floating enable
+for_window [title="^CPU Monitor$"] resize set 500 250
+for_window [title="^CPU Monitor$"] move position 20 20 
+for_window [title="^CPU Monitor$"] move container to workspace current
 #; [title="^__scratchpad$"] fullscreen
 
 #Zoom settings

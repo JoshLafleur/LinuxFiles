@@ -23,7 +23,10 @@ order += "volume master"
 order += "read_file bri"
 order += "battery all"
 order += "load"
+order += "read_file governor"
 order += "cpu_temperature 0"
+#order += "read_file fan"
+order += "lm_sensors"
 order += "memory"
 order += "disk /"
 order += "tztime local"
@@ -82,6 +85,11 @@ disk "/" {
 load {
         format = "  %1min"
         format_above_threshold = "  %1min %5min %15min"
+        max_threshold = "8"
+
+        on_click 1 = "exec --no-startup-id kitty -T='CPU Monitor' watch -n1 sudo cpupower monitor"
+        on_click 2 = "exec /home/josh/scripts/movecpumon.sh"
+        on_click 3 = "exec /home/josh/scripts/closecpumon.sh"
 }
 
 cpu_temperature 0 {
@@ -102,4 +110,28 @@ tztime local {
 read_file uptime {
         path = "/proc/uptime"
         format = "<span color='#FFFFFF'>%content</span>"
+}
+
+read_file fan {
+        format = "<span color='#FFFFFF'>  %content RPM</span>"
+        path = "/sys/devices/platform/thinkpad_hwmon/hwmon/hwmon3/fan1_input"
+        
+}
+
+read_file governor {
+        format = "<span color='#FFFFFF'>  %content</span>"
+        path = "/sys/devices/system/cpu/cpu0/cpufreq/scaling_governor"
+        on_click 1 = "exec sudo cpupower frequency-set -g performance" 
+        on_click 2 = "exec sudo cpupower frequency-set -g ondemand"
+        on_click 3 = "exec sudo cpupower frequency-set -g powersave"
+}
+
+lm_sensors {
+        chips = ['thinkpad-isa-0000']
+        sensors = ['fan1']
+        #format_chip = '[\?if=name=thinkpad-isa-0000 CPU]'
+        format_chip = '{format_sensor}'
+        #format_sensor = '[\?if=name=fan1 ]'
+        format_sensor = '[  {input} RPM]'
+
 }
