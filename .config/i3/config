@@ -95,6 +95,11 @@ for_window [title="^CPU Monitor$"] floating enable
 for_window [title="^CPU Monitor$"] resize set 500 250
 for_window [title="^CPU Monitor$"] move position 20 20 
 for_window [title="^CPU Monitor$"] move container to workspace current
+
+for_window [title="^CPU Monitor Full$"] floating enable
+for_window [title="^CPU Monitor Full$"] resize set 750 500
+for_window [title="^CPU Monitor Full$"] move position 20 20 
+for_window [title="^CPU Monitor Full$"] move container to workspace current
 #; [title="^__scratchpad$"] fullscreen
 
 #Zoom settings

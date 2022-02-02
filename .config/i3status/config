@@ -87,8 +87,8 @@ load {
         format_above_threshold = "  %1min %5min %15min"
         max_threshold = "8"
 
-        on_click 1 = "exec --no-startup-id kitty -T='CPU Monitor' watch -n1 sudo cpupower monitor"
-        on_click 2 = "exec /home/josh/scripts/movecpumon.sh"
+        on_click 1 = "exec --no-startup-id kitty -T='CPU Monitor' watch -n1 'sudo cpupower monitor'"
+        on_click 2 = "exec --no-startup-id kitty -T='CPU Monitor Full' watch -n1 'sudo cpupower monitor && echo && top -b -n 1'"
         on_click 3 = "exec /home/josh/scripts/closecpumon.sh"
 }
 

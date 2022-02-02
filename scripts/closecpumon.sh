@@ -1,3 +1,3 @@
 #!/bin/bash
 
-exec i3-msg '[title="^CPU Monitor$"] kill'
+exec i3-msg '[title="^CPU Monitor"] kill'
