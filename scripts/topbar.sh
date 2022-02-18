@@ -8,9 +8,9 @@ do
   #eta=''
   out=""
   gen=$(sudo genlop -c -n )
-  pck=$(grep \* <<< "$gen")
-  cur=$(grep Currently <<< $gen)
-  eta=$(grep ETA <<< $gen)
+  pck=$(grep \* <<< "$gen" | head -1)
+  cur=$(grep Currently <<< $gen | head -1)
+  eta=$(grep ETA <<< $gen | head -1)
   if [[ $pck != '' ]]; then 
     out+="  $cur -> ${pck:3} ${eta:7}" 
   fi

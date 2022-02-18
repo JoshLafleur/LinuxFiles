@@ -23,6 +23,7 @@ order += "volume master"
 order += "read_file bri"
 order += "battery all"
 order += "load"
+#order += "cpu_usage"
 order += "read_file governor"
 order += "cpu_temperature 0"
 #order += "read_file fan"
@@ -90,6 +91,12 @@ load {
         on_click 1 = "exec --no-startup-id kitty -T='CPU Monitor' watch -n1 'sudo cpupower monitor'"
         on_click 2 = "exec --no-startup-id kitty -T='CPU Monitor Full' watch -n1 'sudo cpupower monitor && echo && top -b -n 1'"
         on_click 3 = "exec /home/josh/scripts/closecpumon.sh"
+}
+
+cpu_usage {
+        format = "  %usage"
+        max_threshold = 90
+        degraded_threshold = 50
 }
 
 cpu_temperature 0 {
