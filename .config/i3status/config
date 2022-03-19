@@ -34,8 +34,8 @@ order += "tztime local"
 order += "read_file uptime"
 
 keyboard_locks {
-    format =  '[\?if=num_lock&color=good NUM|\?color=bad NUM] '
-    format += '[\?if=caps_lock&color=good CAPS|\?color=bad CAPS] '
+    format =  '[\?if=num_lock&color=good NUM|\?color=bad NUM]'
+    format += '[\?if=caps_lock&color=good CAPS|\?color=bad CAPS]'
 }
 
 wireless _first_ {

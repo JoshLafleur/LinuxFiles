@@ -32,7 +32,7 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
-exec --no-startup-id nm-applet
+exec nm-applet
 
 # Adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -54,8 +54,7 @@ floating_modifier $mod
 bindsym $mod+l exec --no-startup-id /home/josh/scripts/lock.sh
 bindsym $mod+Shift+l exec --no-startup-id /home/josh/scripts/lock.sh & loginctl suspend
 bindsym $mod+Print exec /home/josh/scripts/printscr.sh
-bindcode $mod+21 --no-startup-id exec gnome-calculator 
-bindsym $mod+b exec /home/josh/scripts/blackscreen.sh
+bindcode $mod+21 exec gnome-calculator 
 
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
@@ -224,10 +223,10 @@ mode "resize" {
         bindsym semicolon resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+        bindsym Left resize shrink width 5 px or 5 ppt
+        bindsym Down resize grow height 5 px or 5 ppt
+        bindsym Up resize shrink height 5 px or 5 ppt
+        bindsym Right resize grow width 5 px or 5 ppt
 
         # back to normal: Enter or Escape or $mod+r
         bindsym Return mode "default"
