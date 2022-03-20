@@ -61,6 +61,7 @@ BG_CYAN="\[\e[46m\]"
 BG_GREEN="\[\e[42m\]"
 BG_MAGENTA="\[\e[45m\]"
 
+if [ $TERM == "xterm-kitty" ]; then 
 PS1="\n ${FG_BLUE}╭─" # begin arrow to prompt
 PS1+="${FG_GREEN}" # begin USERNAME container
 PS1+="${BG_GREEN}${FG_CYAN}${FMT_BOLD}" # print OS icon
@@ -81,3 +82,25 @@ PS1+="${FG_BLUE}╰ " # end arrow to prompt
 PS1+="${FG_CYAN}\\$ " # print prompt
 PS1+="${FMT_RESET}"
 export PS1
+fi
+
+if [ $TERM == "xterm-256color" ]; then 
+PS1="${BG_GREEN}${FG_CYAN}${FMT_BOLD}" # print OS icon
+PS1+="${FG_BLACK} \u" # print username
+PS1+="${FMT_UNBOLD} ${FG_GREEN}${BG_BLUE}" # end USERNAME container / begin DIRECTORY container
+PS1+="${FG_GREY} \w " # print directory
+PS1+="${FG_BLUE}${BG_CYAN}" # end DIRECTORY container / begin FILES container
+PS1+="${FG_BLACK} "
+PS1+="FO \$(find . -mindepth 1 -maxdepth 1 -type d | wc -l) " # print number of folders
+PS1+="FI \$(find . -mindepth 1 -maxdepth 1 -type f | wc -l) " # print number of files
+PS1+="LI \$(find . -mindepth 1 -maxdepth 1 -type l | wc -l) " # print number of symlinks
+PS1+="${FMT_RESET}${FG_CYAN}"
+PS1+="\$(git branch 2> /dev/null | grep '^*' | colrm 1 2 | xargs -I BRANCH echo -n \"" # check if git branch exists
+PS1+="${BG_GREEN}" # end FILES container / begin BRANCH container
+PS1+="${FG_BLACK} BRANCH " # print current git branch
+PS1+="${FMT_RESET}${FG_GREEN}\")\n" # end last container (either FILES or BRANCH)
+PS1+="${FG_BLUE}" # end arrow to prompt
+PS1+="${FG_CYAN}\\$ " # print prompt
+PS1+="${FMT_RESET}"
+export PS1
+fi
