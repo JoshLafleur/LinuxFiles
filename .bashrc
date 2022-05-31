@@ -19,7 +19,10 @@
 alias config="/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
 alias zenbot-0="ssh josh@104.128.64.148"
 alias tks="tmux kill-session"
+
 neofetch
+
+export PATH=/home/josh/tools/Xilinx/Vivado/2020.1/bin:$PATH
 
 
 # >>> conda initialize >>>

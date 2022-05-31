@@ -101,6 +101,8 @@ for_window [title="^CPU Monitor Full$"] move position 20 20
 for_window [title="^CPU Monitor Full$"] move container to workspace current
 #; [title="^__scratchpad$"] fullscreen
 
+for_window [class="Thunar"] floating enable
+for_window [class="Gnome-calculator"] floating enable
 #Zoom settings
 for_window [title="^zoom$"] floating enable
 

@@ -26,6 +26,8 @@ set backspace=indent,eol,start
 "set spell
 set wildignore=.jpeg,.png,.swp
 set showtabline=2
+set sidescroll=1
+
 nnoremap<C-Left> :tabN<CR>
 nnoremap<C-Right> :tabn<CR>
 nnoremap<C-l> :nohlsearch<CR>
@@ -37,6 +39,7 @@ call plug#begin()
  Plug 'junegunn/fzf.vim'
  Plug 'vim-syntastic/syntastic'
  Plug 'Raimondi/delimitMate'
+ Plug 'cjuniet/clang-format.vim'
  "Holding place for Airline - installed through emerge
  "Holding for nerdtree - installed through emerge
 call plug#end()
@@ -70,3 +73,4 @@ augroup END
 "--- NERDTree
 let g:NERDTreeWinSize=20
 nnoremap<F7> :NERDTreeToggle<CR>
+let NERDTreeShowHidden=1
